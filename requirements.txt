@@ -1,2 +1,5 @@
-matplotlib
-optuna
+sklearn
+pandas
+numpy
+streamlit
+scipy
