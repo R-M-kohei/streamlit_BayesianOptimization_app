@@ -1,5 +1,5 @@
-sklearn==0.0
-pandas==1.0.3
+sklearn
+pandas
 numpy
-streamlit==1.13.0
-scipy==1.4.1
+streamlit
+scipy
