@@ -5,7 +5,7 @@ from sklearn.gaussian_process.kernels import  WhiteKernel, RBF, ConstantKernel
 import numpy as np
 import streamlit as st
 
-st.title("Bayesian Optimization")
+st.title("Bayesian Optimization for Material Design")
 st.subheader("[How to use in Japanese](https://r-m-kohei-streamlit-bayesianoptimization-a-streamlit-app-lvwbbc.streamlitapp.com/Document_JP)")
 st.subheader("[How to use in English](https://r-m-kohei-streamlit-bayesianoptimization-a-streamlit-app-lvwbbc.streamlitapp.com/Document_EN)")
 
