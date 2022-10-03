@@ -71,7 +71,7 @@ if uploaded_data_csv:
         if (len(Y_columns)>0) & (len(X_columns)>0):
             st.write("5.Get the next condition")
             perform = st.button("Perform")
-            num_X_for_predictions = int(3e6)
+            num_X_for_predictions = int(e6)
             if perform:
                 st.text("Modeling of Gaussian Processing...")
                 # settings
