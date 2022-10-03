@@ -146,7 +146,7 @@ if uploaded_data_csv:
                     sum_of_log_probabilities.index = X_for_predictions_df.index
 
                     st.write('Max of sum of log(probability) : {0}'.format(sum_of_log_probabilities.iloc[:, 0].max()))
-
+                    probabilities
                     probabilities.loc[[sum_of_log_probabilities.iloc[:, 0].idxmax()], :]
                     st.write("Next condition")
                     X_for_predictions_df.loc[[sum_of_log_probabilities.iloc[:, 0].idxmax()], :]
