@@ -6,7 +6,8 @@ import numpy as np
 import streamlit as st
 
 st.title("Bayesian Optimization")
-st.subheader("[How to use](https://r-m-kohei-streamlit-bayesianoptimization-a-streamlit-app-lvwbbc.streamlitapp.com/Document)")
+st.subheader("[How to use in Japanese](https://r-m-kohei-streamlit-bayesianoptimization-a-streamlit-app-lvwbbc.streamlitapp.com/Document_JP)")
+st.subheader("[How to use in Japanese](https://r-m-kohei-streamlit-bayesianoptimization-a-streamlit-app-lvwbbc.streamlitapp.com/Document_EN)")
 
 st.write("1. Dataset")
 uploaded_data_csv = st.file_uploader("Upload dataset",
