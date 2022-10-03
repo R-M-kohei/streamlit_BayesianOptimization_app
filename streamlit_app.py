@@ -62,7 +62,7 @@ if uploaded_data_csv:
                 col3.write("*Use probability of improvement")
                 acquisition_function = "Probability of improvement"
             else:
-                acquisition_function = col3.radio("Acquisition function",
+                acquisition_function = col3.radio("",
                                                   ("Probability of improvement", "Expected improvement"))
         elif len(Y_columns) > 1:
             col3.write("*Use probability of improvement")
