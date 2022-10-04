@@ -148,10 +148,10 @@ if uploaded_data_csv:
 
                     if len(Y_columns)>1:
                         st.write('Max of sum of log(probability) : {0}'.format(pd.to_numeric(sum_of_log_probabilities["sum_of_log_probabilities"], errors="coerce").max()))
-                    #else:
-                        #st.write("Probability")
+                    else:
+                        st.write("Probability")
                     #st.write("Probability")
-                    #probabilities.loc[[sum_of_log_probabilities["sum_of_log_probabilities"].idxmax()], :]
+                    probabilities.loc[pd.to_numeric(sum_of_log_probabilities["sum_of_log_probabilities"], errors="coerce"), :]
                     st.write("Next condition")
                     X_for_predictions_df.loc[[pd.to_numeric(sum_of_log_probabilities["sum_of_log_probabilities"], errors="coerce").idxmax()], :]
                     #X_for_predictions_df.loc[[sum_of_log_probabilities["sum_of_log_probabilities"].idxmax()], :]
