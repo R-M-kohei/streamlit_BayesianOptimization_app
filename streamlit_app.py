@@ -146,10 +146,13 @@ if uploaded_data_csv:
                     sum_of_log_probabilities.columns = ['sum_of_log_probabilities']
                     sum_of_log_probabilities.index = X_for_predictions_df.index
 
-                    st.write('Max of sum of log(probability) : {0}'.format(sum_of_log_probabilities.iloc[:, 0].max()))
-                    probabilities.loc[[sum_of_log_probabilities.iloc[:, 0].idxmax()], :]
+                    if len(Y_columns)>1:
+                        st.write('Max of sum of log(probability) : {0}'.format(sum_of_log_probabilities["sum_of_log_probabilities"].max()))
+                    else:
+                        st.write("Probability")
+                    probabilities.loc[[sum_of_log_probabilities["sum_of_log_probabilities"].idxmax()], :]
                     st.write("Next condition")
-                    X_for_predictions_df.loc[[sum_of_log_probabilities.iloc[:, 0].idxmax()], :]
+                    X_for_predictions_df.loc[[sum_of_log_probabilities["sum_of_log_probabilities"].idxmax()], :]
 
                 # EI
                 elif acquisition_function == "Expected improvement":
@@ -164,7 +167,6 @@ if uploaded_data_csv:
                                                           Y_autoscaled_max - relaxation_value) /
                                                                std_of_estimated_y_for_prediction_tmp)
                         st.write('Max of EI : {0}'.format(max(acquisition_function_values)))
-                        X_for_predictions_df.loc[[np.argmax(acquisition_function_values)], :]
                     elif Y_settings[0] == "Minimization":
                         Y_autoscaled_max = -Y_autoscaled[Y_columns[0]].min()
                         acquisition_function_values = (-estimated_y_for_prediction_tmp - Y_autoscaled_max - relaxation_value) * \
@@ -176,4 +178,5 @@ if uploaded_data_csv:
                                                           Y_autoscaled_max - relaxation_value) /
                                                                std_of_estimated_y_for_prediction_tmp)
                         st.write('Max of EI : {0}'.format(max(acquisition_function_values)))
-                        X_for_predictions_df.loc[[np.argmax(acquisition_function_values)], :]
+                    st.write("Next condition")
+                    X_for_predictions_df.loc[[np.argmax(acquisition_function_values)], :]
