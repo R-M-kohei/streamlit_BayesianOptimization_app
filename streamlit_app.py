@@ -150,8 +150,8 @@ if uploaded_data_csv:
                         # st.write('Max of sum of log(probability) : {0}'.format(sum_of_log_probabilities["sum_of_log_probabilities"].max()))
                     #else:
                         #st.write("Probability")
-                    st.write("Probability")
-                    probabilities.loc[[sum_of_log_probabilities["sum_of_log_probabilities"].idxmax()], :]
+                    #st.write("Probability")
+                    #probabilities.loc[[sum_of_log_probabilities["sum_of_log_probabilities"].idxmax()], :]
                     st.write("Next condition")
                     X_for_predictions_df.loc[[sum_of_log_probabilities["sum_of_log_probabilities"].idxmax()], :]
 
