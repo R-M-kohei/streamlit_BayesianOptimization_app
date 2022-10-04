@@ -153,7 +153,8 @@ if uploaded_data_csv:
                     #st.write("Probability")
                     #probabilities.loc[[sum_of_log_probabilities["sum_of_log_probabilities"].idxmax()], :]
                     st.write("Next condition")
-                    X_for_predictions_df.loc[[sum_of_log_probabilities["sum_of_log_probabilities"].idxmax()], :]
+                    X_for_predictions_df.loc[[pd.to_numeric(sum_of_log_probabilities["sum_of_log_probabilities"], errors="coerce").idxmax()], :]
+                    #X_for_predictions_df.loc[[sum_of_log_probabilities["sum_of_log_probabilities"].idxmax()], :]
 
                 # EI
                 elif acquisition_function == "Expected improvement":
