@@ -75,10 +75,9 @@ if uploaded_data_csv:
             num_X_for_predictions = int(1e4)
             if perform:
                 st.text("Modeling of Gaussian Processing...")
-                # settings
-                fold_number = 10
+                # setting for acquisition function 
                 relaxation_value = 0.01
-
+                
                 Y = df[Y_columns]
                 X = df[X_columns]
                 X_for_predictions_dict = {}
@@ -96,7 +95,7 @@ if uploaded_data_csv:
                 estimated_y_for_prediction = np.zeros([X_for_predictions_df.shape[0], len(Y_columns)])
                 std_of_estimated_y_for_prediction = np.zeros([X_for_predictions_df.shape[0], len(Y_columns)])
                 for y_number in range(len(Y_columns)):
-                    st.text("Objective function : {}".format(Y_columns[y_number]))
+                    st.text("Calculating acquisition function for objective function : {}".format(Y_columns[y_number]))
                     model = GaussianProcessRegressor(ConstantKernel() * RBF() + WhiteKernel(), alpha=0)
                     model.fit(X_autoscaled, Y_autoscaled.iloc[:, y_number])
                     estimated_y_for_prediction_tmp, std_of_estimated_y_for_prediction_tmp = model.predict(
@@ -147,15 +146,8 @@ if uploaded_data_csv:
                     sum_of_log_probabilities.index = X_for_predictions_df.index
 
                     st.write('Max of log(probability) : {0}'.format(pd.to_numeric(sum_of_log_probabilities["sum_of_log_probabilities"], errors="coerce").max()))
-                    #if len(Y_columns)>1:
-                        #st.write('Max of sum of log(probability) : {0}'.format(pd.to_numeric(sum_of_log_probabilities["sum_of_log_probabilities"], errors="coerce").max()))
-                    #else:
-                        #st.write("Probability")
-                    #st.write("Probability")
-                    #probabilities.loc[pd.to_numeric(sum_of_log_probabilities["sum_of_log_probabilities"], errors="coerce"), :]
                     st.write("Next condition")
                     X_for_predictions_df.loc[[pd.to_numeric(sum_of_log_probabilities["sum_of_log_probabilities"], errors="coerce").idxmax()], :]
-                    #X_for_predictions_df.loc[[sum_of_log_probabilities["sum_of_log_probabilities"].idxmax()], :]
 
                 # EI
                 elif acquisition_function == "Expected improvement":
