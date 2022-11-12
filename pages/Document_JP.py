@@ -33,12 +33,7 @@ st.write("Range : 目的変数がある範囲に収まるような条件を探�
          "この設定を利用する場合には範囲を指定してください。")
 
 st.subheader("4. Acquisition function")
-st.write("獲得関数(Acquisition function)の設定を行います。"
-         "目的変数が一つの場合はProbability of improvement(PI)と"
-         "Expected improvement(EI)を利用できます。"
-         "PIはEIに比べ極小値にトラップされやすいですが、"
-         "目的関数が複数の場合には取り扱いが容易なため"
-         "現在はPIのみを利用可能です。")
+st.write("獲得関数(Acquisition function)の設定を行います。")
 
 st.subheader("5. Get the next condition")
 st.write("ベイズ最適化により次の実験条件を取得します。"
